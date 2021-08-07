@@ -1,3 +1,4 @@
+from django.contrib.admin.sites import DefaultAdminSite
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -39,6 +40,7 @@ class Feedback(models.Model):
     )
 
     text = models.TextField(verbose_name='Текст обратной связи')
+    checked =models.BooleanField(default=False, verbose_name='Обработано')
 
     def __str__(self):
         return self.text[:20]
